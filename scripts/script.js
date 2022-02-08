@@ -70,7 +70,7 @@ function flipCard() {
                     firstCardVIew.classList.remove('flip');
                     secondCardView.classList.remove('flip');
                     game.unflipCards();
-                }, 700);
+                }, 900);
             };
         }
     }
