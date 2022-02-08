@@ -137,5 +137,9 @@ body {
   #gameBoard{
     gap:10px;
   }
+
+  #gameOver{
+    text-align: center;
+  }
 }
 
