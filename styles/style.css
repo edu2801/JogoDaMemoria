@@ -114,3 +114,28 @@ body {
     gap:12px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .card {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card_back,
+.card_front{
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.card_back{
+  font-size: 15px;
+}
+
+  .icon{
+    height: 40px;
+  }
+
+  #gameBoard{
+    gap:10px;
+  }
+}
+
