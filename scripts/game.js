@@ -1,8 +1,11 @@
 let game = {
+    counter: 0,
+    record: null,
 
     lockMode: false,
-    firstCard: null,
+    fistCard: null,
     secondCard: null,
+
     techs: ['bootstrap',
         'css',
         'electron',
@@ -12,60 +15,58 @@ let game = {
         'jquery',
         'mongo',
         'node',
-        'react',],
+        'react'],
+
+    cards: null,
 
     setCard: function (id) {
-
         let card = this.cards.filter(card => card.id === id)[0];
-        console.log(card);
+
         if (card.flipped || this.lockMode) {
             return false;
-        }
+        };
 
-        if (!this.firstCard) {
-            this.firstCard = card;
-            this.firstCard.flipped = true;
+        if (!this.fistCard) {
+            this.fistCard = card;
+            this.fistCard.flipped = true;
             return true;
         } else {
             this.secondCard = card;
-            this.lockMode = true;
             this.secondCard.flipped = true;
+            this.lockMode = true;
             return true;
         }
-
     },
 
     checkMatch: function () {
-        if (!this.firstCard || !this.secondCard) {
-            return false
+        if (!this.fistCard || !this.secondCard) {
+            return false;
         }
-        return this.firstCard.icon === this.secondCard.icon;
+        return this.fistCard.icon === this.secondCard.icon;
     },
 
     clearCards: function () {
-        this.firstCard = null;
+        this.fistCard = null;
         this.secondCard = null;
         this.lockMode = false;
     },
 
-    unflipCards(){
-        this.firstCard.flipped = false;
+    unflipCards() {
+        this.fistCard.flipped = false;
         this.secondCard.flipped = false;
-        this.clearCards();
+        this.clearCards()
     },
 
-    checkGameOver(){
-        return this.cards.filter(card=>!card.flipped).length == 0;
+    checkGameOver() {
+        return this.cards.filter(card => !card.flipped).length == 0;
     },
-
-    cards: null,
 
     createCardsFormTechs: function () {
 
         this.cards = [];
 
-        this.techs.forEach((tech) => {
-            this.cards.push(this.createPairFromTech(tech));
+        this.techs.map((tech) => {
+            this.cards.push(this.createPairFromTech(tech))
         });
 
         this.cards = this.cards.flatMap(pair => pair);
@@ -74,7 +75,6 @@ let game = {
     },
 
     createPairFromTech: function (tech) {
-
         return [{
             id: this.createIdWithTech(tech),
             icon: tech,
@@ -83,8 +83,7 @@ let game = {
             id: this.createIdWithTech(tech),
             icon: tech,
             flipped: false,
-        }]
-
+        }];
     },
 
     createIdWithTech: function (tech) {
@@ -93,7 +92,7 @@ let game = {
 
     shuffleCards: function (cards) {
         let currentIndex = this.cards.length;
-        let randomIndex = 0;
+        let randomIndex = null;
 
         while (currentIndex !== 0) {
 
@@ -101,6 +100,10 @@ let game = {
             currentIndex--;
 
             [this.cards[randomIndex], this.cards[currentIndex]] = [this.cards[currentIndex], this.cards[randomIndex]];
-        }
-    }
+        };
+    },
+
+
+
+
 }

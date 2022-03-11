@@ -7,6 +7,7 @@
 body {
   font-family: "Righteous", sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -98,20 +99,28 @@ body {
   }
 
   .card_back,
-.card_front{
-  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.45);
-}
+  .card_front {
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.45);
+  }
 
-.card_back{
-  font-size: 20px;
-}
+  .card_back {
+    font-size: 20px;
+  }
 
-  .icon{
+  .icon {
     height: 60px;
   }
 
-  #gameBoard{
-    gap:12px;
+  #gameBoard {
+    gap: 12px;
+  }
+
+  #counter {
+    margin-top: 15px;
+  }
+
+  #record {
+    margin-top: 50px;
   }
 }
 
@@ -122,24 +131,23 @@ body {
   }
 
   .card_back,
-.card_front{
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.45);
-}
+  .card_front {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.45);
+  }
 
-.card_back{
-  font-size: 15px;
-}
+  .card_back {
+    font-size: 15px;
+  }
 
-  .icon{
+  .icon {
     height: 40px;
   }
 
-  #gameBoard{
-    gap:10px;
+  #gameBoard {
+    gap: 10px;
   }
 
-  #gameOver{
+  #gameOver {
     text-align: center;
   }
 }
-
